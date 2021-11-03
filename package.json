@@ -1,0 +1,33 @@
+{
+  "name": "nodejs-react-pdf-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src -d lib",
+    "start": "nodemon --exec babel-node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/studiojms/nodejs-react-pdf-example.git"
+  },
+  "author": "studiojms",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/studiojms/nodejs-react-pdf-example/issues"
+  },
+  "homepage": "https://github.com/studiojms/nodejs-react-pdf-example#readme",
+  "dependencies": {
+    "@react-pdf/renderer": "^2.0.20",
+    "express": "^4.17.1",
+    "react": "^17.0.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/node": "^7.16.0",
+    "@babel/preset-react": "^7.16.0",
+    "nodemon": "^2.0.14"
+  }
+}
