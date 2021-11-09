@@ -6,6 +6,7 @@ const app = express();
 app.get('/', async (req, res) => {
   try {
     const pdf = await createPdf();
+    res.contentType('application/pdf');
     res.send(pdf);
   } catch (err) {
     console.error(err);
