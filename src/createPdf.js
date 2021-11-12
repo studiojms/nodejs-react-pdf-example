@@ -3,19 +3,16 @@ const path = require('path');
 const fs = require('fs');
 
 const { renderToFile } = require('@react-pdf/renderer');
-const { TestDocument } = require('./Document');
+const { TestDocument } = require('./components/Document');
+const { getMovieDocument } = require('./components/MovieList');
 
-async function createPdf() {
+async function createPdfWithChart() {
   try {
-    const pdfPath = path.join(
-      __dirname,
-      '..',
-      'tmp',
-      `my-doc${parseInt(Math.random() * 10000)
-        .toString()
-        .padStart(5, '0')}.pdf`
-    );
+    const pdfPath = path.join(__dirname, '..', 'tmp', `my-doc-with-chart-${new Date().getTime()}.pdf`);
+    console.log(`rendering chart to pdf...`);
     await renderToFile(<TestDocument />, pdfPath);
+
+    console.log(`created pdf at ${pdfPath}`);
     return fs.readFileSync(pdfPath);
   } catch (error) {
     console.log(error);
@@ -23,4 +20,21 @@ async function createPdf() {
   }
 }
 
-module.exports = { createPdf };
+async function createPdfWithImage(year = 2012) {
+  try {
+    const pdfPath = path.join(__dirname, '..', 'tmp', `my-doc-with-image-${new Date().getTime()}.pdf`);
+    console.log(`rendering image to pdf...`);
+
+    const doc = await getMovieDocument(year);
+
+    await renderToFile(doc, pdfPath);
+
+    console.log(`created pdf at ${pdfPath}`);
+    return fs.readFileSync(pdfPath);
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+}
+
+module.exports = { createPdfWithChart, createPdfWithImage };
