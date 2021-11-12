@@ -46,6 +46,15 @@ const data = [
   },
 ];
 
+function CustomAxisTick({ x, y, stroke, payload }) {
+  return (
+    <g transform={`translate(${x},${y})`}>
+      <text x={0} y={0} dy={16} textAnchor="end" fontSize={13} fill="#666" transform="rotate(-45)">
+        {payload.value}
+      </text>
+    </g>
+  );
+}
 function SampleChart() {
   return (
     <LineChart
@@ -53,17 +62,17 @@ function SampleChart() {
       height={250}
       data={data}
       margin={{
-        top: 5,
+        top: 20,
         right: 30,
         left: 20,
-        bottom: 5,
+        bottom: 100,
       }}
       isAnimationActive={false}
     >
       <CartesianGrid />
-      <XAxis dataKey="name" />
-      <YAxis />
-      <Line type="monotone" dataKey="pv" stroke="#f00" activeDot={{ r: 8 }} />
+      <XAxis dataKey="name" tick={<CustomAxisTick />} tickMargin={10} />
+      <YAxis fontSize={12} />
+      <Line type="monotone" dataKey="pv" stroke="#f00" />
       <Line type="monotone" dataKey="uv" stroke="#00f" />
     </LineChart>
   );
@@ -71,10 +80,19 @@ function SampleChart() {
 
 const MyRechartsChart = ({ width, height, data = getSampleData() }) => {
   return (
-    <ScatterChart width={width} height={height}>
+    <ScatterChart
+      width={width}
+      height={height}
+      margin={{
+        top: 20,
+        right: 30,
+        left: 20,
+        bottom: 20,
+      }}
+    >
       <CartesianGrid />
-      <XAxis name="x" dataKey="x" />
-      <YAxis name="y" dataKey="y" />
+      <XAxis name="x" dataKey="x" fontSize={12} tickMargin={10} />
+      <YAxis name="y" dataKey="y" fontSize={12} />
       <Scatter name="My Scatter" data={data} fill="#008800" />
     </ScatterChart>
   );
