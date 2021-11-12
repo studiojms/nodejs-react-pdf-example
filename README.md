@@ -28,3 +28,9 @@ npm start
 
 - Create a PDF document using charts (recharts library)
   - Go to http://localhost:4000/
+
+### Examples
+
+![image](https://user-images.githubusercontent.com/158855/141501158-3909ae3d-6802-4912-96ce-2671f6c629c7.png)
+
+![image](https://user-images.githubusercontent.com/158855/141501263-df047a24-1e9e-4b22-931e-a8e8506a7fc7.png)
