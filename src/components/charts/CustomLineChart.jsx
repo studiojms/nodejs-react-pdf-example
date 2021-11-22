@@ -1,27 +1,19 @@
 const React = require('react');
 const { LineChart, CartesianGrid, XAxis, YAxis, Line } = require('recharts');
 
-function CustomAxisTick({ x, y, stroke, payload }) {
-  return (
-    <g transform={`translate(${x},${y})`}>
-      <text x={0} y={0} dy={16} textAnchor="end" fontSize={13} fill="#666" transform="rotate(-45)">
-        {payload.value}
-      </text>
-    </g>
-  );
-}
+const { CustomAxisTick } = require('../CustomAxisTick');
 
 function CustomLineChart({ data }) {
   return (
     <LineChart
-      width={500}
-      height={250}
+      width={400}
+      height={200}
       data={data}
       margin={{
         top: 20,
         right: 30,
         left: 20,
-        bottom: 100,
+        bottom: 40,
       }}
       isAnimationActive={false}
     >

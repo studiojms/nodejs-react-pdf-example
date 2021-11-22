@@ -1,7 +1,7 @@
 const React = require('react');
 const { Document, Page, Text, View, StyleSheet, Line } = require('@react-pdf/renderer');
 
-const { SampleLineChart, SampleScatterChart } = require('./SampleChart');
+const { SampleLineChart, SampleScatterChart, SampleBarChart } = require('./SampleChart');
 const { ChartSvg } = require('./Chart');
 
 const styles = StyleSheet.create({
@@ -43,6 +43,11 @@ function TestDocument() {
           <Text style={styles.chartTitle}>Scatter Chart</Text>
           <ChartSvg width={800} height={600}>
             <SampleScatterChart width={400} height={200} />
+          </ChartSvg>
+          <Line style={styles.line} />
+          <Text style={styles.chartTitle}>Bar Chart</Text>
+          <ChartSvg width={800} height={600}>
+            <SampleBarChart />
           </ChartSvg>
         </View>
       </Page>

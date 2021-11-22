@@ -1,4 +1,5 @@
 const React = require('react');
+const { CustomBarChart } = require('./charts/CustomBarChart');
 const { CustomLineChart } = require('./charts/CustomLineChart');
 const { CustomScatterChart } = require('./charts/CustomScatterChart');
 
@@ -65,4 +66,8 @@ function SampleScatterChart({ width, height }) {
   return <CustomScatterChart width={width} height={height} data={getSampleData()} />;
 }
 
-module.exports = { SampleLineChart, SampleScatterChart };
+function SampleBarChart() {
+  return <CustomBarChart data={data} />;
+}
+
+module.exports = { SampleLineChart, SampleScatterChart, SampleBarChart };
