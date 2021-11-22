@@ -1,6 +1,7 @@
 const React = require('react');
 const { Document, Page, Text, View, StyleSheet, Line } = require('@react-pdf/renderer');
-const { SampleChart, MyRechartsChart } = require('./SampleChart');
+
+const { SampleLineChart, SampleScatterChart } = require('./SampleChart');
 const { ChartSvg } = require('./Chart');
 
 const styles = StyleSheet.create({
@@ -34,14 +35,14 @@ function TestDocument() {
       <Page style={styles.page}>
         <Text style={styles.title}>React PDF test</Text>
         <View style={styles.section}>
-          <Text style={styles.chartTitle}>Chart</Text>
+          <Text style={styles.chartTitle}>Line Chart</Text>
           <ChartSvg width={800} height={800}>
-            <SampleChart />
+            <SampleLineChart />
           </ChartSvg>
           <Line style={styles.line} />
-          <Text style={styles.chartTitle}>Chart 2</Text>
+          <Text style={styles.chartTitle}>Scatter Chart</Text>
           <ChartSvg width={800} height={600}>
-            <MyRechartsChart width={400} height={200} />
+            <SampleScatterChart width={400} height={200} />
           </ChartSvg>
         </View>
       </Page>
