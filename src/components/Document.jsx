@@ -27,6 +27,15 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginBottom: 5,
   },
+  sideBySide: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  paragraph: {
+    fontSize: 10,
+    maxWidth: '40%',
+    marginTop: 20,
+  },
 });
 
 function TestDocument() {
@@ -36,9 +45,17 @@ function TestDocument() {
         <Text style={styles.title}>React PDF test</Text>
         <View style={styles.section}>
           <Text style={styles.chartTitle}>Line Chart</Text>
-          <ChartSvg width={800} height={800}>
-            <SampleLineChart />
-          </ChartSvg>
+          <View style={styles.sideBySide}>
+            <ChartSvg width={500} height={800}>
+              <SampleLineChart />
+            </ChartSvg>
+            <Text style={styles.paragraph}>
+              Pulvinar pellentesque habitant morbi tristique senectus et netus. Nunc eget lorem dolor sed viverra ipsum
+              nunc aliquet bibendum. Enim ut tellus elementum sagittis vitae et leo duis ut. Adipiscing vitae proin
+              sagittis nisl. Orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor. Id nibh
+              tortor id aliquet lectus proin nibh nisl condimentum. Platea dictumst vestibulum rhoncus est pellentesque.
+            </Text>
+          </View>
           <Line style={styles.line} />
           <Text style={styles.chartTitle}>Scatter Chart</Text>
           <ChartSvg width={800} height={600}>

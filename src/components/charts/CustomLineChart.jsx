@@ -6,7 +6,7 @@ const { CustomAxisTick } = require('../CustomAxisTick');
 function CustomLineChart({ data }) {
   return (
     <LineChart
-      width={400}
+      width={300}
       height={200}
       data={data}
       margin={{
